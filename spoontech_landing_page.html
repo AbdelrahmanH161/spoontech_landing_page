@@ -1,0 +1,202 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .st-nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); position: sticky; top: 0; z-index: 10; }
+  .st-logo { font-size: 18px; font-weight: 500; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px; }
+  .st-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: #1D9E75; }
+  .st-nav-links { display: flex; gap: 1.5rem; }
+  .st-nav-links a { font-size: 13px; color: var(--color-text-secondary); text-decoration: none; cursor: pointer; }
+  .st-nav-links a:hover { color: var(--color-text-primary); }
+  .st-btn { background: #1D9E75; color: #fff; border: none; border-radius: var(--border-radius-md); padding: 8px 20px; font-size: 13px; font-weight: 500; cursor: pointer; }
+  .st-btn:hover { background: #0F6E56; }
+  .st-btn-outline { background: transparent; color: #1D9E75; border: 0.5px solid #1D9E75; border-radius: var(--border-radius-md); padding: 8px 20px; font-size: 13px; font-weight: 500; cursor: pointer; }
+
+  .hero { padding: 5rem 2rem 4rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #E1F5EE; color: #0F6E56; font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 99px; margin-bottom: 1.5rem; }
+  .hero-badge i { font-size: 14px; }
+  .hero h1 { font-size: 38px; font-weight: 500; line-height: 1.25; color: var(--color-text-primary); margin-bottom: 1.25rem; }
+  .hero h1 span { color: #1D9E75; }
+  .hero p { font-size: 16px; color: var(--color-text-secondary); line-height: 1.7; max-width: 650px; margin: 0 auto 2rem; }
+  .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--color-border-tertiary); border-top: 0.5px solid var(--color-border-tertiary); border-bottom: 0.5px solid var(--color-border-tertiary); margin: 0; }
+  .stat-item { background: var(--color-background-primary); padding: 1.5rem 1rem; text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 500; color: #1D9E75; }
+  .stat-lbl { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+
+  .section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #1D9E75; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .section-title { font-size: 26px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 1rem; line-height: 1.3; }
+  .section-sub { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; max-width: 680px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; align-items: start; }
+  .about-visual { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 2rem; }
+  .about-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.25rem; }
+  .about-pill { display: flex; align-items: center; gap: 6px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 99px; padding: 6px 14px; font-size: 12px; color: var(--color-text-secondary); }
+  .about-pill i { color: #1D9E75; font-size: 14px; }
+  .about-copy { font-size: 14px; color: var(--color-text-secondary); line-height: 1.75; }
+  .about-copy p + p { margin-top: 1rem; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 2.5rem; }
+  .svc-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; transition: border-color 0.2s; }
+  .svc-card:hover { border-color: #1D9E75; }
+  .svc-icon { width: 40px; height: 40px; background: #E1F5EE; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .svc-icon i { color: #0F6E56; font-size: 20px; }
+  .svc-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+  .svc-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .divider { height: 0.5px; background: var(--color-border-tertiary); margin: 0 2rem; }
+
+  .footer-wrap { background: var(--color-background-secondary); border-top: 0.5px solid var(--color-border-tertiary); padding: 3rem 2rem 2rem; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; max-width: 900px; margin: 0 auto; }
+  .footer-brand p { font-size: 13px; color: var(--color-text-secondary); margin-top: 0.75rem; line-height: 1.65; max-width: 280px; }
+  .footer-col h4 { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 8px; display: flex; align-items: flex-start; gap: 6px; }
+  .footer-col ul li i { font-size: 14px; color: #1D9E75; margin-top: 2px; flex-shrink: 0; }
+  .footer-legal { max-width: 900px; margin: 2rem auto 0; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .legal-block h5 { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
+  .legal-block h5 i { color: #1D9E75; font-size: 14px; }
+  .legal-block p { font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.65; }
+  .footer-bottom { max-width: 900px; margin: 1.5rem auto 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1rem; }
+  .footer-bottom p { font-size: 12px; color: var(--color-text-secondary); }
+  .footer-bottom .badge { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #0F6E56; background: #E1F5EE; padding: 4px 10px; border-radius: 99px; }
+</style>
+
+<h2 class="sr-only">SpoonTech — Restaurant Management Software Landing Page</h2>
+
+<nav class="st-nav">
+  <div class="st-logo">
+    <div class="st-logo-dot"></div>
+    SpoonTech
+  </div>
+  <div class="st-nav-links">
+    <a>Product</a>
+    <a>Services</a>
+    <a>Pricing</a>
+    <a>Contact</a>
+  </div>
+  <button class="st-btn">Request a Demo</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge"><i class="ti ti-rocket" aria-hidden="true"></i> AI-powered F&B management</div>
+  <h1>The future of restaurant management.<br><span>Smarter, faster,</span> closer to your customers.</h1>
+  <p>An all-in-one POS and operations platform built for the modern F&B industry. From QR-first ordering and real-time inventory intelligence to AI-driven revenue forecasting — SpoonTech gives you total operational control to scale with confidence.</p>
+  <div class="hero-cta">
+    <button class="st-btn" onclick="sendPrompt('I want to learn more about SpoonTech pricing and onboarding')">Get started free <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    <button class="st-btn-outline">Watch a demo</button>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">40%</div><div class="stat-lbl">Average waste reduction</div></div>
+  <div class="stat-item"><div class="stat-num">3×</div><div class="stat-lbl">Faster table turnover</div></div>
+  <div class="stat-item"><div class="stat-num">99.9%</div><div class="stat-lbl">Platform uptime</div></div>
+  <div class="stat-item"><div class="stat-num">15 min</div><div class="stat-lbl">Average setup time</div></div>
+</div>
+
+<section class="section">
+  <div class="section-label">About us</div>
+  <div class="section-title">Behind the tech: we are your partners in success</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-copy">
+        <p>At SpoonTech, we don't just build software — we engineer solutions specifically designed for the pressures of the food and beverage sector. Every feature we ship is shaped by the daily reality of restaurant owners, café operators, and food truck entrepreneurs across Egypt and the wider region.</p>
+        <p>Our mission is simple: eliminate the operational friction that costs you money. Whether that's shrinkage from untracked inventory, revenue lost to slow service, or loyalty that walks out the door, SpoonTech is built to close those gaps with technology that is powerful yet genuinely easy to use.</p>
+      </div>
+      <div class="about-pill-row">
+        <span class="about-pill"><i class="ti ti-building-store" aria-hidden="true"></i> Restaurants</span>
+        <span class="about-pill"><i class="ti ti-coffee" aria-hidden="true"></i> Cafés</span>
+        <span class="about-pill"><i class="ti ti-truck" aria-hidden="true"></i> Food trucks</span>
+        <span class="about-pill"><i class="ti ti-basket" aria-hidden="true"></i> Dark kitchens</span>
+      </div>
+    </div>
+    <div class="about-visual">
+      <p style="font-size:12px; font-weight:500; color: var(--color-text-secondary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em;">Why operators choose SpoonTech</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display:flex; gap:10px; align-items:flex-start;"><i class="ti ti-check" style="color:#1D9E75; font-size:16px; margin-top:2px;" aria-hidden="true"></i><span style="font-size:13px; color:var(--color-text-secondary);">Purpose-built for Egyptian F&B market conditions</span></div>
+        <div style="display:flex; gap:10px; align-items:flex-start;"><i class="ti ti-check" style="color:#1D9E75; font-size:16px; margin-top:2px;" aria-hidden="true"></i><span style="font-size:13px; color:var(--color-text-secondary);">Arabic-first interface with full bilingual support</span></div>
+        <div style="display:flex; gap:10px; align-items:flex-start;"><i class="ti ti-check" style="color:#1D9E75; font-size:16px; margin-top:2px;" aria-hidden="true"></i><span style="font-size:13px; color:var(--color-text-secondary);">Zero technical background required for daily use</span></div>
+        <div style="display:flex; gap:10px; align-items:flex-start;"><i class="ti ti-check" style="color:#1D9E75; font-size:16px; margin-top:2px;" aria-hidden="true"></i><span style="font-size:13px; color:var(--color-text-secondary);">Dedicated onboarding and local support team</span></div>
+        <div style="display:flex; gap:10px; align-items:flex-start;"><i class="ti ti-check" style="color:#1D9E75; font-size:16px; margin-top:2px;" aria-hidden="true"></i><span style="font-size:13px; color:var(--color-text-secondary);">Scales from single branch to multi-location chains</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="section-label">Services</div>
+  <div class="section-title">Everything your operation needs. One platform.</div>
+  <p class="section-sub">From the moment a guest scans a menu to the moment you close your monthly books, SpoonTech handles the full operational loop.</p>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon"><i class="ti ti-qrcode" aria-hidden="true"></i></div>
+      <div class="svc-title">Smart QR ordering & checkout</div>
+      <div class="svc-desc">Eliminate queues, cut paper costs, and reduce front-of-house pressure. Guests browse, customize, order, and split bills from their own devices — no app download required.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
+      <div class="svc-title">Real-time inventory & waste control</div>
+      <div class="svc-desc">Track every ingredient live. Receive low-stock and expiry alerts before they become problems. Built-in cost analytics surface exactly where your margins are leaking.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div class="svc-title">Live dashboard & performance analytics</div>
+      <div class="svc-desc">Monitor active shifts, live bills, and peak-hour traffic from anywhere. Daily, weekly, and monthly reports translate raw data into decisions — not spreadsheets.</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon"><i class="ti ti-robot" aria-hidden="true"></i></div>
+      <div class="svc-title">AI forecasting & CRM loyalty</div>
+      <div class="svc-desc">Predict revenue and stock demand using AI trained on your own sales patterns. Retain customers with loyalty programs and personalized rewards that actually drive repeat visits.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="footer-wrap">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="st-logo"><div class="st-logo-dot"></div>SpoonTech</div>
+      <p>Empowering Egypt's food and beverage industry with AI-driven management tools that reduce waste, maximize throughput, and build lasting customer loyalty.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact us</h4>
+      <ul>
+        <li><i class="ti ti-map-pin" aria-hidden="true"></i>Administrative Building, El Teseen St., New Cairo, Egypt</li>
+        <li><i class="ti ti-phone" aria-hidden="true"></i>+20 1X XXXX XXXX</li>
+        <li><i class="ti ti-mail" aria-hidden="true"></i>hello@spoontech.io</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><i class="ti ti-chevron-right" aria-hidden="true"></i>QR ordering</li>
+        <li><i class="ti ti-chevron-right" aria-hidden="true"></i>Inventory control</li>
+        <li><i class="ti ti-chevron-right" aria-hidden="true"></i>Analytics</li>
+        <li><i class="ti ti-chevron-right" aria-hidden="true"></i>AI forecasting</li>
+        <li><i class="ti ti-chevron-right" aria-hidden="true"></i>CRM & loyalty</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <div class="legal-block">
+      <h5><i class="ti ti-file-description" aria-hidden="true"></i> Terms of service</h5>
+      <p>By accessing SpoonTech, you agree to our service terms. The platform is licensed exclusively for authorized commercial hospitality use. Reverse-engineering, reselling, or intentional service disruption is strictly prohibited. SpoonTech guarantees high system availability; however, we are not liable for interruptions caused by client-side network failures or third-party infrastructure providers.</p>
+    </div>
+    <div class="legal-block">
+      <h5><i class="ti ti-shield-lock" aria-hidden="true"></i> Privacy policy</h5>
+      <p>SpoonTech applies industry-standard encryption to all transactions, order records, and staff data. We collect only the information necessary to operate the platform and generate business analytics. We never sell, rent, or disclose your data to third parties. All sales and inventory data generated on your account remains exclusively yours.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 SpoonTech. All rights reserved.</p>
+    <div class="badge"><i class="ti ti-shield-check" aria-hidden="true"></i> SOC 2 compliant · Data stays in Egypt</div>
+  </div>
+</div>
