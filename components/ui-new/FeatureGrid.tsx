@@ -3,19 +3,20 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { QrCode, Package, LineChart, BrainCircuit } from "lucide-react"
+import { useLanguage } from "@/lib/i18n"
 
 export function FeatureGrid() {
+  const { t } = useLanguage()
+  const f = t.features
+
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   }
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+    show: { opacity: 1, y: 0 },
   }
 
   return (
@@ -23,14 +24,13 @@ export function FeatureGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-            Everything you need. <br/> <span className="text-st-primary">Perfectly integrated.</span>
+            {f.sectionTitle1} <br />
+            <span className="text-st-primary">{f.sectionTitle2}</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Say goodbye to fragmented systems. SpoonTech brings your entire operation into a single, intelligent dashboard.
-          </p>
+          <p className="text-muted-foreground text-lg">{f.sectionDesc}</p>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -43,10 +43,8 @@ export function FeatureGrid() {
             <div className="w-12 h-12 bg-st-light rounded-2xl flex items-center justify-center mb-6">
               <QrCode size={24} className="text-st-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">Smart QR Ordering & Payments</h3>
-            <p className="text-muted-foreground leading-relaxed max-w-md">
-              Eliminate queues and reduce front-of-house pressure. Guests can browse your interactive menu, customize their orders, and pay instantly from their own devices—without downloading any apps.
-            </p>
+            <h3 className="text-xl font-bold text-foreground mb-3">{f.qr.title}</h3>
+            <p className="text-muted-foreground leading-relaxed max-w-md">{f.qr.desc}</p>
           </motion.div>
 
           {/* Bento Item 2: Small */}
@@ -54,10 +52,8 @@ export function FeatureGrid() {
             <div className="w-12 h-12 bg-st-light rounded-2xl flex items-center justify-center mb-6">
               <Package size={24} className="text-st-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">Inventory Intelligence</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Track every ingredient in real-time. Receive automated alerts for low stock and pinpoint exactly where your margins are leaking.
-            </p>
+            <h3 className="text-xl font-bold text-foreground mb-3">{f.inventory.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{f.inventory.desc}</p>
           </motion.div>
 
           {/* Bento Item 3: Small */}
@@ -65,10 +61,8 @@ export function FeatureGrid() {
             <div className="w-12 h-12 bg-st-light rounded-2xl flex items-center justify-center mb-6">
               <LineChart size={24} className="text-st-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">Live Analytics</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Monitor active shifts, live bills, and peak-hour traffic from anywhere. Turn raw data into actionable decisions.
-            </p>
+            <h3 className="text-xl font-bold text-foreground mb-3">{f.analytics.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{f.analytics.desc}</p>
           </motion.div>
 
           {/* Bento Item 4: Large */}
@@ -77,12 +71,9 @@ export function FeatureGrid() {
             <div className="w-12 h-12 bg-st-primary/20 rounded-2xl flex items-center justify-center mb-6">
               <BrainCircuit size={24} className="text-st-primary" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-white">AI-Driven Revenue Forecasting</h3>
-            <p className="text-slate-400 leading-relaxed max-w-md">
-              Leverage advanced machine learning models trained on your historical sales patterns. Predict demand, optimize staffing levels, and deploy targeted CRM loyalty rewards that actually drive repeat visits.
-            </p>
+            <h3 className="text-xl font-bold mb-3 text-white">{f.ai.title}</h3>
+            <p className="text-slate-400 leading-relaxed max-w-md">{f.ai.desc}</p>
           </motion.div>
-
         </motion.div>
       </div>
     </section>

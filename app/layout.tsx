@@ -1,7 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Cairo } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/lib/i18n"
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
@@ -9,6 +10,12 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  variable: "--font-arabic",
+  display: "swap",
 })
 
 export const metadata = {
@@ -41,10 +48,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased scroll-smooth", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("antialiased scroll-smooth", fontMono.variable, "font-sans", geist.variable, cairo.variable)}
     >
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>{children}</ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
