@@ -56,9 +56,11 @@ export function PricingSection() {
               className={`text-sm font-medium ${isYearly ? "text-foreground" : "text-muted-foreground"}`}
             >
               {p.yearly}{" "}
-              <span className="ms-1.5 inline-block rounded-full bg-st-primary/10 px-2 py-0.5 text-[10px] font-bold tracking-wider text-st-primary uppercase">
-                {p.yearlyBadge}
-              </span>
+              {billing === "yearly" && (
+                <span className="ms-1.5 inline-block rounded-full bg-st-primary/10 px-2 py-0.5 text-[10px] font-bold tracking-wider text-st-primary uppercase">
+                  {p.yearlyBadge}
+                </span>
+              )}
             </span>
           </div>
         </div>
