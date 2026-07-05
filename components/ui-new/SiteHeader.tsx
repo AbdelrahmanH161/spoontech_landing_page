@@ -9,14 +9,9 @@ import { useLanguage } from "@/lib/i18n"
 export function SiteHeader() {
   const { language, setLanguage, t } = useLanguage()
 
-  const navKeys = ["features", "solutions", "pricing", "resources"] as const
-  const navLabels = [
-    t.nav.features,
-    t.nav.solutions,
-    t.nav.pricing,
-    t.nav.resources,
-  ]
-  const navAnchors = ["features", "solutions", "pricing", "resources"]
+  const navKeys = ["home", "features", "pricing"] as const
+  const navLabels = [t.nav.home, t.nav.features, t.nav.pricing]
+  const navAnchors = ["home", "features", "pricing"]
 
   const toggleLanguage = () => setLanguage(language === "en" ? "ar" : "en")
 

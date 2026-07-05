@@ -1,5 +1,6 @@
 export const en = {
   nav: {
+    home: "Home",
     features: "Features",
     solutions: "Solutions",
     pricing: "Pricing",
@@ -57,7 +58,8 @@ export const en = {
   },
   pricing: {
     title: "Simple, transparent pricing.",
-    subtitle: "Choose the perfect plan for your operation. Upgrade anytime as you grow.",
+    subtitle:
+      "Choose the perfect plan for your operation. Upgrade anytime as you grow.",
     quarterly: "Quarterly",
     yearly: "Yearly",
     yearlyBadge: "2 Months Free",
@@ -84,7 +86,8 @@ export const en = {
       },
       {
         name: "Smart Restaurant Tier",
-        description: "Advanced management and analytics for growing restaurants.",
+        description:
+          "Advanced management and analytics for growing restaurants.",
         features: [
           "Everything in FOOD Truck Tier",
           "Advanced Order Management (search, filter)",
@@ -97,7 +100,8 @@ export const en = {
       },
       {
         name: "AI Pro Restaurant Tier",
-        description: "The ultimate AI-powered operating system for maximum efficiency.",
+        description:
+          "The ultimate AI-powered operating system for maximum efficiency.",
         features: [
           "Everything in Smart Restaurant Tier",
           "CRM (Customer profiles & history)",
@@ -112,16 +116,21 @@ export const en = {
   },
   footer: {
     cta: "Ready to upgrade your restaurant's OS?",
-    ctaBtn: "Start Your Free Trial",
+    ctaBtn: "Start Your Trial",
     ctaNote: "No credit card required. Setup in 15 minutes.",
     tagline:
       "Empowering the modern F&B industry with intelligent tools to reduce waste, maximize throughput, and build lasting loyalty.",
     product: "Product",
-    productLinks: ["QR Ordering", "Inventory Management", "AI Forecasting", "CRM & Loyalty"],
+    productLinks: [
+      "QR Ordering",
+      "Inventory Management",
+      "AI Forecasting",
+      "CRM & Loyalty",
+    ],
     company: "Company",
-    companyLinks: ["About Us", "Careers", "Contact", "Partners"],
+    companyLinks: ["About Us", "Contact"],
     legal: "Legal",
-    legalLinks: ["Terms of Service", "Privacy Policy", "Security (SOC 2)"],
+    legalLinks: ["Terms of Service", "Privacy Policy"],
     copyright: "© 2026 SpoonTech. All rights reserved.",
     twitter: "Twitter",
     linkedin: "LinkedIn",
@@ -131,6 +140,7 @@ export const en = {
 
 export const ar: typeof en = {
   nav: {
+    home: "الرئيسية",
     features: "المميزات",
     solutions: "الحلول",
     pricing: "الأسعار",
@@ -243,16 +253,21 @@ export const ar: typeof en = {
   },
   footer: {
     cta: "هل أنت مستعد للترقي إلى نظام تشغيل مطعمك؟",
-    ctaBtn: "ابدأ تجربتك المجانية",
+    ctaBtn: "ابدأ تجربتك",
     ctaNote: "لا يلزم بطاقة ائتمانية. الإعداد في 15 دقيقة.",
     tagline:
       "نُمكّن صناعة الأغذية والمشروبات الحديثة بأدوات ذكية لتقليل الهدر وتعظيم الإنتاجية وبناء ولاء دائم.",
     product: "المنتج",
-    productLinks: ["طلب QR", "إدارة المخزون", "التوقع بالذكاء الاصطناعي", "CRM والولاء"],
+    productLinks: [
+      "طلب QR",
+      "إدارة المخزون",
+      "التوقع بالذكاء الاصطناعي",
+      "CRM والولاء",
+    ],
     company: "الشركة",
-    companyLinks: ["من نحن", "وظائف", "تواصل معنا", "شركاء"],
+    companyLinks: ["من نحن", "تواصل معنا"],
     legal: "قانوني",
-    legalLinks: ["شروط الخدمة", "سياسة الخصوصية", "الأمان (SOC 2)"],
+    legalLinks: ["شروط الخدمة", "سياسة الخصوصية"],
     copyright: "© 2026 سبون تك. جميع الحقوق محفوظة.",
     twitter: "تويتر",
     linkedin: "لينكد إن",

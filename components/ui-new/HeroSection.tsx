@@ -7,11 +7,18 @@ import { ArrowRight, PlayCircle } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const h = t.hero
 
+  const navigateToDashboard = () => {
+    window.location.href = "https://cp.spoontech.net/sign-in"
+  }
+
   return (
-    <section className="relative flex min-h-[90vh] items-center overflow-hidden px-6 pt-40 pb-20">
+    <section
+      id="home"
+      className="relative flex min-h-[90vh] items-center overflow-hidden px-6 pt-40 pb-20"
+    >
       {/* Abstract Background Shapes */}
       <div className="pointer-events-none absolute top-0 right-0 h-[800px] w-[800px] translate-x-1/3 -translate-y-12 rounded-full bg-st-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-[600px] w-[600px] -translate-x-1/3 translate-y-1/3 rounded-full bg-st-light/30 blur-3xl" />
@@ -48,16 +55,14 @@ export function HeroSection() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button
               size="lg"
+              onClick={navigateToDashboard}
               className="h-14 gap-2 rounded-xl bg-st-primary px-8 text-base text-white shadow-xl shadow-st-primary/20 transition-all hover:bg-st-primary-hover"
             >
-              {h.cta} <ArrowRight size={18} />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 gap-2 rounded-xl border-border px-8 text-base hover:bg-secondary"
-            >
-              <PlayCircle size={18} className="text-st-primary" /> {h.watchDemo}
+              {h.cta}{" "}
+              <ArrowRight
+                style={{ transform: language == "ar" ? "scaleX(-1)" : "none" }}
+                size={18}
+              />
             </Button>
           </div>
         </motion.div>
