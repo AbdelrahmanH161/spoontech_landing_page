@@ -132,8 +132,8 @@ export const en = {
     legal: "Legal",
     legalLinks: ["Terms of Service", "Privacy Policy"],
     copyright: "© 2026 SpoonTech. All rights reserved.",
-    twitter: "Twitter",
     linkedin: "LinkedIn",
+    facebook: "Facebook",
     instagram: "Instagram",
   },
 }
@@ -269,8 +269,8 @@ export const ar: typeof en = {
     legal: "قانوني",
     legalLinks: ["شروط الخدمة", "سياسة الخصوصية"],
     copyright: "© 2026 سبون تك. جميع الحقوق محفوظة.",
-    twitter: "تويتر",
     linkedin: "لينكد إن",
+    facebook: "فيسبوك",
     instagram: "إنستغرام",
   },
 }
