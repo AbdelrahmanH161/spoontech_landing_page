@@ -10,8 +10,8 @@ export function HeroSection() {
   const { t, language } = useLanguage()
   const h = t.hero
 
-  const navigateToDashboard = () => {
-    window.location.href = "https://cp.spoontech.net/sign-in"
+  const navigateToWhatsapp = () => {
+    window.open("https://wa.me/201500588018", "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -55,7 +55,7 @@ export function HeroSection() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button
               size="lg"
-              onClick={navigateToDashboard}
+              onClick={navigateToWhatsapp}
               className="h-14 gap-2 rounded-xl bg-st-primary px-8 text-base text-white shadow-xl shadow-st-primary/20 transition-all hover:bg-st-primary-hover"
             >
               {h.cta}{" "}

@@ -80,7 +80,11 @@ export function SiteFooter() {
             <Button
               size="lg"
               onClick={() => {
-                window.location.href = "https://cp.spoontech.net/sign-in"
+                window.open(
+                  "https://wa.me/201500588018",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
               }}
               className="h-14 rounded-2xl bg-st-primary px-10 text-lg text-white shadow-xl shadow-st-primary/20 hover:bg-st-primary-hover"
             >
